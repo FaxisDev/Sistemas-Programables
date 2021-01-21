@@ -1,0 +1,44 @@
+void setup() {
+
+  Serial.begin(9600);
+
+}
+
+int nivel = 0, diferente = 0;
+
+void loop() {
+
+  nivel = analogRead(A1) / 6;
+
+
+  if (nivel != diferente) {
+    //Serial.println(nivel);
+    diferente = nivel;
+    delay(200);
+
+
+    if (nivel <= 20 && nivel >= 0 ) {
+      Serial.println("Nivel Bajo");
+
+    } else if (nivel <= 40 && nivel >= 21 ) {
+      Serial.println("Nivel Medio");
+
+    } else if (nivel <= 60 && nivel >= 41 ) {
+      Serial.println("Nivel Medio");
+
+    } else if (nivel <= 80 && nivel >= 61 ) {
+      Serial.println("Nivel Alto");
+
+    } else if (nivel >= 81 ) {
+      Serial.println("Nivel Lleno");
+    }
+
+
+  }
+
+  if (Serial.available()) {
+
+    Serial.println("Like");
+  }
+
+}
